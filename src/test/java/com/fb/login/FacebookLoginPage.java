@@ -30,7 +30,7 @@ public class FacebookLoginPage {
 		driver.findElement(By.xpath("//input[@value='Log In']")).isEnabled();
 
 		File scr = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		File save = new File("../Images/actual/" + driver.getTitle() + "_actual.png");
+		File save = new File("../Images/actual/" + driver.getTitle().replaceAll(" ", "").replaceAll("–", "_") + "_actual.png");
 		try {
 			FileUtils.copyFile(scr, save);
 		} catch (IOException e) {
